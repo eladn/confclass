@@ -16,12 +16,18 @@ __all__ = [
 # A sentinel object to detect if a parameter is supplied or not.
 # Use an empty class to give it a unique representation.
 class _UNSET_TYPE:
-    pass
+    def __copy__(self):
+        return self
+    def __deepcopy__(self, memodict={}):
+        return self
 _UNSET = _UNSET_TYPE()
 
 
 class _CONFCLASS_MARK_TYPE:
-    pass
+    def __copy__(self):
+        return self
+    def __deepcopy__(self, memodict={}):
+        return self
 _CONFCLASS_MARK = _CONFCLASS_MARK_TYPE()
 
 
